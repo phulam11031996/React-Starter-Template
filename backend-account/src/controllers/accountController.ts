@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { deleteService, getIdService, getService, postService, putService } from '../models/accountService';
-import { CREATE_201, INTERNAL_ERROR_500, NOT_FOUND_404, NO_CONTENT_204, OK_200 } from '../../common/httpCode';
+import { CREATE_201, INTERNAL_ERROR_500, NOT_FOUND_404, NO_CONTENT_204, OK_200 } from '../common/httpCode';
 
 interface Account {
   _id: string;
