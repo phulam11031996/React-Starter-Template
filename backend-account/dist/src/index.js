@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'Account microservice is running' });
 });
-app.use('/api', accountRoute_1.default);
+app.use('/', accountRoute_1.default);
 const server = app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
