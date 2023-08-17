@@ -5,7 +5,7 @@ import mongoose, { ConnectOptions } from 'mongoose';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { app, server } from '../../src';
 import { AddressInfo } from 'net';
-import { CREATE_201, INTERNAL_ERROR_500, NOT_FOUND_404, OK_200 } from '../../src/common/httpCode';
+import { CREATE_201, INTERNAL_ERROR_500, NOT_FOUND_404, OK_200 } from '../../common/httpCode';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let account1: any;
