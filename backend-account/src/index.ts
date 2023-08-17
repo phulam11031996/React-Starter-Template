@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Account microservice is running' });
 });
 
-app.use('/api', accountRoute);
+app.use('/', accountRoute);
 
 const server = app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);

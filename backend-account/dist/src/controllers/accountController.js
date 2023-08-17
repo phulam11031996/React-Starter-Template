@@ -1,23 +1,55 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postController = void 0;
+exports.putController = exports.deleteController = exports.getIdController = exports.getController = exports.postController = void 0;
 const accountService_1 = require("../models/accountService");
-const postController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, accountService_1.postService)(req.body)
+const httpCode_1 = require("../../common/httpCode");
+const postController = async (req, res) => {
+    await (0, accountService_1.postService)(req.body)
         .then((result) => {
-        res.status(200).json(result);
+        res.status(httpCode_1.CREATE_201).json(result);
     })
         .catch(() => {
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(httpCode_1.INTERNAL_ERROR_500).json({ message: 'Internal Server Error' });
     });
-});
+};
 exports.postController = postController;
+const getController = async (req, res) => {
+    await (0, accountService_1.getService)()
+        .then((result) => {
+        res.status(httpCode_1.OK_200).json(result);
+    })
+        .catch(() => {
+        res.status(httpCode_1.INTERNAL_ERROR_500).json({ message: 'Internal Server Error' });
+    });
+};
+exports.getController = getController;
+const getIdController = async (req, res) => {
+    await (0, accountService_1.getIdService)(req.params.id)
+        .then((result) => {
+        result && res.status(httpCode_1.OK_200).json(result);
+        !result && res.status(httpCode_1.NOT_FOUND_404).json();
+    })
+        .catch(() => {
+        res.status(httpCode_1.INTERNAL_ERROR_500).json({ message: 'Internal Server Error' });
+    });
+};
+exports.getIdController = getIdController;
+const deleteController = async (req, res) => {
+    await (0, accountService_1.deleteService)(req.params.id)
+        .then(() => res.status(httpCode_1.NO_CONTENT_204).json())
+        .catch(() => {
+        res.status(httpCode_1.INTERNAL_ERROR_500).json({ message: 'Internal Server Error' });
+    });
+};
+exports.deleteController = deleteController;
+const putController = async (req, res) => {
+    await (0, accountService_1.putService)(req.params.id, req.body)
+        .then((result) => {
+        result && res.status(httpCode_1.OK_200).json(result);
+        !result && res.status(httpCode_1.NOT_FOUND_404).json();
+    })
+        .catch(() => {
+        res.status(httpCode_1.INTERNAL_ERROR_500).json({ message: 'Internal Server Error' });
+    });
+};
+exports.putController = putController;
