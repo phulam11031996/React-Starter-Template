@@ -1,6 +1,6 @@
 import mongoose, { ConnectOptions } from 'mongoose';
 
-const uri = 'mongodb://admin:password@localhost:27017/';
+const uri = 'mongodb://admin:password@mongodb-container:27017/';
 
 const dbConnection = () => {
   mongoose

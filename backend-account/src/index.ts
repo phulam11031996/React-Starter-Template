@@ -6,7 +6,7 @@ import dbConnection from './models/dbConnection';
 
 require.main === module && dbConnection();
 
-const PORT = 3000;
+const PORT = 8080;
 const app = express();
 
 app.use(bodyParser.json());
