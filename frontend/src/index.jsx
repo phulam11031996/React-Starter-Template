@@ -5,24 +5,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import ErrorPage from "./pages/Error";
-import Browse from "./pages/Browse";
+import ComparisonSlider from "./components/ComparisionSlider";
+import beforeImage from "./assets/before.jpg";
+import afterImage from "./assets/after.jpg";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/browse",
-    element: <Browse />,
+    element:  <ComparisonSlider beforeImage={beforeImage} afterImage={afterImage} />
   },
 ]);
 

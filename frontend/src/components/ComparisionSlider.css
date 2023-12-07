@@ -1,0 +1,70 @@
+.container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.container-image {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+}
+
+.before-image {
+    position: absolute;
+    top: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.slider-line {
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: #fff;
+    transform: translateX(-50%);
+}
+
+.slider-icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(-45%, -50%);
+    margin: 0 auto;
+    width: 40px;
+    height: auto;
+}
+
+h3,
+p {
+    z-index: 1;
+    font-size: 16px;
+    position: absolute;
+    color: #fff;
+    transition: opacity 1s ease;
+}
+
+h3 {
+    font-size: 24px;
+    left: 50%;
+    top: -5%;
+    transform: translateX(-50%);
+}
+
+p {
+    left: 8px;
+    bottom: -8px;
+    color: #CACACA;
+}
